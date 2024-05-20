@@ -1,6 +1,7 @@
 "use client"
 
 import InputField from '@/components/InputField'
+import TaskList from '@/components/TaskList'
 import { Task } from '@/components/Model';
 import React, { useState } from 'react'
 
@@ -15,7 +16,7 @@ const App: React.FC = () => {
 
     if (task) {
       setTasks([...tasks, { id: Date.now(), task, isDone: false }])
-      setTask(" ");
+      setTask("");
     }
 
   };
@@ -30,6 +31,7 @@ const App: React.FC = () => {
         Taskman
       </span>
       <InputField task={task} setTask={setTask} handleAdd={handleAdd} />
+      <TaskList tasks={tasks} setTasks={setTasks}/>
     </div>
   )
 }

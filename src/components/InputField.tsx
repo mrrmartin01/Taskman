@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 
 
@@ -8,9 +8,13 @@ interface Props {
     handleAdd: (e: React.FormEvent) => void;
 }
 const InputField: React.FC<Props> = ({ task, setTask, handleAdd }) => {
+    const inputRef = useRef<HTMLInputElement>(null)
+
     return (
-        <form onSubmit={handleAdd} className='flex w-[90%] relative items-center'>
+        <form onSubmit={(e) => { handleAdd(e); inputRef.current?.blur() }}
+            className='flex w-[90%] relative items-center'>
             <input type="input"
+                ref={inputRef}
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
                 placeholder='Enter a task'
