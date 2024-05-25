@@ -9,7 +9,7 @@ interface Props {
 
 const TaskList: React.FC<Props> = ({ tasks, setTasks }) => {
   return (
-    <div className='flex justify-evenly w-[90%] flex-wrap'>
+    <div className='flex justify-evenly w-[90%]  flex-wrap'>
       {tasks.map((task) => (
         <div key={task.id} className=''>
           <SingleTasks 
